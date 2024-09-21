@@ -47,10 +47,7 @@ function App() {
     setPreviousMonth(true); // Cambia el estado para obtener datos del mes anterior
   };
 =======
-   const [anime,setAnime] = useState([]);
-   const [urlimg,setUrlimg] = useState('');
-   const [generos,setGeneros]= useState([]);
-   const [episode,setEpisode] =  useState(false);
+
     
     
     
@@ -97,6 +94,10 @@ import { click } from "./utils/click.js";
 
 
 function App() {
+  const [anime,setAnime] = useState([]);
+  const [urlimg,setUrlimg] = useState('');
+  const [generos,setGeneros]= useState([]);
+  const [episode,setEpisode] =  useState(true);
 
    async function llamada() {
     const res =  await fetch('https://api.jikan.moe/v4/anime?q=bleach-blod-war')
