@@ -84,6 +84,7 @@ import { Header } from "./components/Header";
 import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
+import { Episodes } from "./components/Episodes.jsx";
 import './styles/app.css';
 import { useEffect,useState} from "react";
 import { click } from "./utils/click.js";
@@ -123,6 +124,8 @@ function App() {
       />
        <Header/>
       <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
+        <Episodes/>
+        
         <Media
           urliframe={urlframe === 'MEGA'?iframesSrc.MEGA:iframesSrc.MV}
           no1={'MEGA'}
