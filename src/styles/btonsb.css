@@ -9,3 +9,6 @@
     border-left: none;
     cursor: pointer;
 }
+.offEpisode{
+    display: none;
+}

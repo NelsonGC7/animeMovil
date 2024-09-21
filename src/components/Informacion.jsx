@@ -2,9 +2,6 @@ import '../styles/informacion.css'
 
 export const Informacion = ({ nombre,nombreOr,fans,sinopsis,episodios,urlimg,year,status,genero})=>{
 
-    
-    console.log(genero)
-
     return(
         <section className="Inforanime">
             <div className="Inforanime-punteo">

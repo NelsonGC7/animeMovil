@@ -4,6 +4,7 @@ import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
 import './styles/app.css';
 import { useEffect,useState} from "react";
+import { click } from "./utils/click.js";
 
 
 
@@ -12,6 +13,8 @@ function App() {
    const [anime,setAnime] = useState([]);
    const [urlimg,setUrlimg] = useState('');
    const [generos,setGeneros]= useState([]);
+   const [episode,setEpisode] =  useState(false);
+
    async function llamada() {
     const res =  await fetch('https://api.jikan.moe/v4/anime?q=bleach-blod-war')
     const data =  await res.json()
@@ -26,9 +29,12 @@ function App() {
     <>
       <Btonsb
         urlimg={'./svgs/back-icon.svg'}
+        funcionClick={()=>{
+          click(episode,setEpisode)
+        }}
       />
        <Header/>
-      <section className="Capactive">
+      <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
         <Media/>
         <Informacion
           nombre={anime.title}
