@@ -1,0 +1,14 @@
+.BtonSB{
+    position: absolute;
+    width: 3rem;
+    height: 4rem;
+    top: 5rem;
+    border: none;
+    border-radius: 0 .5rem .5rem 0;
+    border: solid 1px black;
+    border-left: none;
+    cursor: pointer;
+}
+.offEpisode{
+    display: none;
+}

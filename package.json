@@ -1,15 +1,17 @@
 {
-  "name": "animeweb",
+  "name": "animemovil",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "scrip": "node ./scripts/capExtract.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "puppeteer": "^23.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

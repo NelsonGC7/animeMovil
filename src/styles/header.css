@@ -1,0 +1,25 @@
+.Header{
+    display: flex;
+    width: 95%;
+    max-width: 500px;
+    height: 3rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto; 
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+.Header h1{
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    background-color: rgba(163, 163, 163, 0.311);
+}
+.Header button{
+    height: 3rem;
+    width: 4rem;
+    border: none;
+    border: solid 1px black;
+    border-radius: .5rem;
+
+}

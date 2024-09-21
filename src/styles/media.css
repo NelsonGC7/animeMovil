@@ -1,0 +1,50 @@
+.Media{
+    width: 95%;
+    max-width: 500px;
+    height: 16rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border :solid 1px black;
+    border-radius: .6rem;
+    
+}
+.Media .Media-frame{
+    width: 96%;
+    height: 12rem;
+}
+.Media iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: .5rem;
+}
+
+.Media .Media-reframe{
+    width: 96%;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+   gap: .3rem;
+}
+.Media-reframe a{
+    text-decoration: none;
+    width: 25%;
+    color: black;
+    font-size: small;
+    background-color: rgba(181, 181, 181, 0.6);
+    border-radius: .4rem;
+    border:black 1px solid;
+    padding: .3rem;
+    cursor: pointer;
+    transition: all .3s ease-out;
+    &:hover{
+        background-color: rgba(35, 33, 33, 0.756);
+        color: white;
+    }
+    
+
+}
