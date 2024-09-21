@@ -1,2 +1,4 @@
 ##
-GET http://127.0.0.1:4266/
+GET http://127.0.0.1:4266/search?name=one-piece&cap=30
+
+

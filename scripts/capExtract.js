@@ -4,14 +4,14 @@ import fs from  'fs';
 const datos = []
 
 
-async function openNavigator(){
+export async function openNavigator(name,cap){
     try{
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: "shell",
             defaultViewport: null,
         })
         const page = await browser.newPage()
-        await page.goto('https://www3.animeflv.net/ver/Bleach-tv-7');
+        await page.goto(`https://www3.animeflv.net/ver/${name}-${cap}`);
         await page.waitForSelector('.CpCnA')
         await page.waitForSelector('.CapiTnv')
   
@@ -37,7 +37,6 @@ async function openNavigator(){
             "SW":data2
         }
         datos.push(obj)
-        console.log(datos)
         const dataJson = JSON.stringify(datos,null,2)
 
         fs.writeFile('data.json',dataJson,(error)=>{
@@ -45,8 +44,9 @@ async function openNavigator(){
             console.log('archivo creado')
         })
 
-        
+        page.close()
        browser.close()
+       return obj
        
      
     }
