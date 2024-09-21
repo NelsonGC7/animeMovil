@@ -1,4 +1,8 @@
 import puppeteer from 'puppeteer';
+import fs from  'fs';
+
+const datos = []
+
 
 async function openNavigator(){
     try{
@@ -7,21 +11,42 @@ async function openNavigator(){
             defaultViewport: null,
         })
         const page = await browser.newPage()
-        await page.goto('https://www3.animeflv.net/ver/sword-art-online-2');
+        await page.goto('https://www3.animeflv.net/ver/Bleach-tv-7');
         await page.waitForSelector('.CpCnA')
+        await page.waitForSelector('.CapiTnv')
+  
         const data = await page.evaluate(() => {
-            return document.querySelector('.CpCnA iframe').src
-        });
-     
-        const data2 = await page.evaluate( async()=>{
-            let cuentas = 0
-            const lista = [...document.querySelectorAll('.CpCnA li')].map(dist => dist.classList.add(`active${cuentas = cuentas + 1}`));
-           const btonn  = document.querySelector('.CpCnA li.active2');
-           btonn.click()
            
-            return   lista
+            const url = document.querySelector('.CpCnA iframe').src ;
+            const title = document.querySelector('h1').innerText
+            return {
+                title,
+                url
+            }
+        });
+        const data2 = await page.evaluate( async()=>{
+            let cuentas = 0;
+            [...document.querySelectorAll('.CapiTnv li')].map(dist => dist.classList.add(`active${cuentas = cuentas + 1}`));
+           const btonn  = document.querySelector('.CapiTnv   li.active2');
+           btonn.click()
+            return document.querySelector('.CpCnA iframe').src
         })
-       console.log(data2)
+        const obj = {
+            title: data.title,
+            "MEGA":data.url,
+            "SW":data2
+        }
+        datos.push(obj)
+        console.log(datos)
+        const dataJson = JSON.stringify(datos,null,2)
+
+        fs.writeFile('data.json',dataJson,(error)=>{
+            if(error)  return console.log(error)
+            console.log('archivo creado')
+        })
+
+        
+       browser.close()
        
      
     }
