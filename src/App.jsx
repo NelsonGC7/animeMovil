@@ -28,7 +28,7 @@ function App() {
         urlimg={'./svgs/back-icon.svg'}
       />
        <Header/>
-      {/* <section className="Capactive">
+      <section className="Capactive">
         <Media/>
         <Informacion
           nombre={anime.title}
@@ -41,8 +41,7 @@ function App() {
           year={anime.year}
           status={anime.status}
         />
-      </section> */
-      }
+      </section>
       
     </>
   )
