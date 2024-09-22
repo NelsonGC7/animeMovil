@@ -1,5 +1,6 @@
-.active{
+.onCapitulos{
     transform: translateX(0);
+    display: flex;
     background-color: rgba(181, 181, 181, 0.821);
     border-radius: .5rem 0 0 .5rem;
     border:solid 1px black;
@@ -8,7 +9,6 @@
     width: 80%;
     position: absolute;
     right: 0;
-    display: flex;
     align-items: center;
     place-content: center;
     flex-direction: column;
@@ -16,7 +16,7 @@
     transition: all.3s ease-out;
     padding: 0 1rem 1rem 1rem;
 }
-.active .episodes{
+.onCapitulos .episodes{
     width: 100%;
     height: fit-content;
     max-height: 39rem;
@@ -33,7 +33,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.active .episodes div{
+.onCapitulos .episodes div{
     width: 100%;
     height: 100%;
     border-radius: .5rem;
@@ -50,6 +50,7 @@
     }
     
 }
-.deactive{
-    transform: translateX(50%);
+.offCapitulos{
+    transform: translateX(400%);
+    div,h2{display: none;}
 }

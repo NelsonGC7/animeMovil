@@ -19,8 +19,9 @@ function App() {
   const [anime,setAnime] = useState([]);
   const [urlimg,setUrlimg] = useState('');
   const [generos,setGeneros]= useState([]);
-  const [episode,setEpisode] =  useState(true);
   const [urlframe,setUrlframe]= useState('');
+  const [episode,setEpisode] =  useState(true);
+  const [slides,setSlides] = useState(false);
 
    async function llamada() {
     const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
@@ -36,17 +37,21 @@ function App() {
     <>
       <Btonsb
         urlimg={'./svgs/back-icon.svg'}
-        clas={"BtonSB"}
         funcionClick={()=>{
           click(episode,setEpisode)
         }}
+        clas={"BtonSB"}
       />
        <Header>
-        <Btonsb urlimg={"./svgs/menu-icon.svg"}/>
+        
+        <Btonsb 
+          urlimg={"./svgs/menu-icon.svg"} 
+          funcionClick={()=>{click(slides,setSlides)}}
+        />
        </Header>
         <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
-        <Episodes/>
-        
+        <Episodes clas={slides ? "onCapitulos":"offCapitulos"} />
+         
         <Media
           urliframe={urlframe === 'MEGA'?iframesSrc.MEGA:iframesSrc.MV}
           no1={'MEGA'}
