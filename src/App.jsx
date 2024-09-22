@@ -36,12 +36,15 @@ function App() {
     <>
       <Btonsb
         urlimg={'./svgs/back-icon.svg'}
+        clas={"BtonSB"}
         funcionClick={()=>{
           click(episode,setEpisode)
         }}
       />
-       <Header/>
-      <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
+       <Header>
+        <Btonsb urlimg={"./svgs/menu-icon.svg"}/>
+       </Header>
+        <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
         <Episodes/>
         
         <Media
