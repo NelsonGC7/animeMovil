@@ -16,7 +16,6 @@ export async function extraCap(name,cap){
         await page.waitForSelector('.CapiTnv')
   
         const data = await page.evaluate(() => {
-           
             const url = document.querySelector('.CpCnA iframe').src ;
             const title = document.querySelector('h1').innerText
             return {
@@ -56,4 +55,45 @@ export async function extraCap(name,cap){
 
 }
 
-openNavigator()
+export async function extracRecient(){
+    try{
+        const browser = await puppeteer.launch({
+            headless:false,
+            defaultViewport:null
+        })
+        const page = await browser.newPage();
+
+       await page.goto('https://www3.animeflv.net');
+       await page.waitForSelector('.ListEpisodios');
+       
+       const clase = await page.evaluate(()=>{
+        const animeList = [];
+            const list = document.querySelectorAll('.ListEpisodios li');
+            list.forEach(item =>{
+                const capitulo= {
+                    eposode: item.querySelector('.Capi').innerHTML.trim(),
+                    urlimg:  item.querySelector('img').src,
+                    title :item.querySelector('.Title').innerHTML.trim()
+
+                }
+                console.log(item)
+                animeList.push(capitulo)
+                // animeList.push(item.innerHTML)
+
+            })
+
+            return animeList;
+       })
+       console.log(clase)
+    }
+    catch(err){
+        console.log({
+            "error al extraer los recientes": err
+        })
+
+    }
+
+
+
+
+}
