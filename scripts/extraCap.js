@@ -4,7 +4,7 @@ import fs from  'fs';
 const datos = []
 
 
-export async function openNavigator(name,cap){
+export async function extraCap(name,cap){
     try{
         const browser = await puppeteer.launch({
             headless: "shell",

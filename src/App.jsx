@@ -3,10 +3,11 @@ import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
 import { Episodes } from "./components/Episodes.jsx";
-import './styles/app.css';
 import { useEffect,useState} from "react";
 import { click } from "./utils/click.js";
 import { cliker } from "./utils/cliker.js";
+import './styles/app.css';
+
 
 const iframesSrc = {
   "title": "Bleach Episodio 7",
@@ -43,32 +44,32 @@ function App() {
         clas={"BtonSB"}
       />
        <Header>
-        
         <Btonsb 
           urlimg={"./svgs/menu-icon.svg"} 
           funcionClick={()=>{click(slides,setSlides)}}
         />
        </Header>
+
         <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
-        <Episodes clas={slides ? "onCapitulos":"offCapitulos"} />
-         
-        <Media
-          urliframe={urlframe === 'MEGA'?iframesSrc.MEGA:iframesSrc.MV}
-          no1={'MEGA'}
-          no2={'MV'}
-          cliker={(e)=>{cliker(e,setUrlframe)}}
-        />
-        <Informacion
-          nombre={anime.title}
-          nombreOr={anime.title_japanese}
-          fans={anime.members}
-          sinopsis={anime.synopsis}
-          episodios={anime.episodes}
-          urlimg={urlimg}
-          genero={generos}
-          year={anime.year}
-          status={anime.status}
-        />
+          <Episodes clas={slides ? "onCapitulos":"offCapitulos"} />
+          
+          <Media
+            urliframe={urlframe === 'MEGA'?iframesSrc.MEGA:iframesSrc.MV}
+            no1={'MEGA'}
+            no2={'MV'}
+            cliker={(e)=>{cliker(e,setUrlframe)}}
+          />
+          <Informacion
+            nombre={anime.title}
+            nombreOr={anime.title_japanese}
+            fans={anime.members}
+            sinopsis={anime.synopsis}
+            episodios={anime.episodes}
+            urlimg={urlimg}
+            genero={generos}
+            year={anime.year}
+            status={anime.status}
+          />
       </section>
     </>
   )
