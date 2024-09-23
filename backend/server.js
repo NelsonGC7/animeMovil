@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { extraCap,extracRecient } from '../scripts/escrapin.js';
-import { uploadEpisode } from './utils/dbScripts.js';
+import { uploadEpisode,recentEoisodes } from './utils/dbScripts.js';
+
 
 
 const PORT = 4266;
@@ -25,14 +26,9 @@ const uplodaRecients= async()=>{
 
 
 
-app.get('/recientes',(req,res)=>{
-    res.json({
-        weon:"wueee"
-    }).status(200)
-
-
-
-
+app.get('/recientes', async(req,res)=>{
+    const resultado = await recentEoisodes();
+    res.json(resultado).status(200)
 })
 
 app.get('/search',async(req,res)=>{

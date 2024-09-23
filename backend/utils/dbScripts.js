@@ -31,3 +31,16 @@ export async function uploadEpisode(title,urlimg,capitulo){
      })
     }
  }
+
+export async function recentEoisodes() {
+    try{
+        const recientes = await turso.execute('SELECT * FROM recientes');
+        return recientes.rows
+    }
+    catch(err){
+        console.log({
+            error:"error en la traer los cap mas recientes"
+        })
+    }
+    
+}
