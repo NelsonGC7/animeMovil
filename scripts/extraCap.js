@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer';
 import fs from  'fs';
+import { error } from 'console';
 
-const datos = []
+const datos = []//<-- usado para el json local
 
 
 export async function extraCap(name,cap){
@@ -44,29 +45,29 @@ export async function extraCap(name,cap){
         })
 
         page.close()
-       browser.close()
-       return obj
-       
-     
+        browser.close()
+        return obj
     }
     catch (err){
-        console.log({"error in openNavigator": err})
+        console.log({
+            error:"error al escrapiar el capitulo"
+        })
     }
 
 }
 
 export async function extracRecient(){
     try{
-        const browser = await puppeteer.launch({
-            headless:false,
+        const browser = await puppeteer.launch({//<-- creando y abriendo el nagegador simulado
+            headless:'shell',
             defaultViewport:null
         })
         const page = await browser.newPage();
 
        await page.goto('https://www3.animeflv.net');
-       await page.waitForSelector('.ListEpisodios');
+       await page.waitForSelector('.ListEpisodios');//<--- espera a que a paresca el selector para poder ser usado
        
-       const clase = await page.evaluate(()=>{
+       const recentEpisodes = await page.evaluate(()=>{
         const animeList = [];
             const list = document.querySelectorAll('.ListEpisodios li');
             list.forEach(item =>{
@@ -76,15 +77,13 @@ export async function extracRecient(){
                     title :item.querySelector('.Title').innerHTML.trim()
 
                 }
-                console.log(item)
                 animeList.push(capitulo)
                 // animeList.push(item.innerHTML)
-
             })
 
             return animeList;
        })
-       console.log(clase)
+       return recentEpisodes;
     }
     catch(err){
         console.log({

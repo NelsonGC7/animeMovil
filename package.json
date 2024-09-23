@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
-    "mon": "nodemon backend/server.js",
+    "nodemon": "nodemon backend/server.js",
     "scrip": "node ./scripts/extraCap.js",
     "dev": "vite",
     "build": "vite build",
