@@ -2,3 +2,5 @@
 GET http://127.0.0.1:4266/search?name=naruto&cap=100
 
 
+###
+GET http://127.0.0.1:4266/recientes

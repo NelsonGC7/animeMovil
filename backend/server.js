@@ -25,6 +25,15 @@ const uplodaRecients= async()=>{
 
 
 
+app.get('/recientes',(req,res)=>{
+    res.json({
+        weon:"wueee"
+    }).status(200)
+
+
+
+
+})
 
 app.get('/search',async(req,res)=>{
    const {name,cap} =  req.query;
