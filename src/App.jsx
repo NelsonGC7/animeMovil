@@ -25,19 +25,33 @@ function App() {
   const [urlframe,setUrlframe]= useState('');
   const [episode,setEpisode] =  useState(false);
   const [slides,setSlides] = useState(false);
+  const [recientes,setRecientes]=useState([])
 
 
-  useEffect(()=>{
-    async function infoCap() {
-      const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
-      const data =  await res.json();
-      setAnime(data.data[0]);
-      setUrlimg(data.data[0].images.jpg.image_url);
-      setGeneros(data.data[0].genres);
+  // useEffect(()=>{
+  //   async function infoCap() {
+  //     const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
+  //     const data =  await res.json();
+  //     setAnime(data.data[0]);
+  //     setUrlimg(data.data[0].images.jpg.image_url);
+  //     setGeneros(data.data[0].genres);
       
+  //   }
+  //   infoCap();
+  // },[])
+ 
+  useEffect(()=>{
+    const capRecientes = async ()=>{
+      const res  = await fetch('http://127.0.0.1:4266/recientes');
+      const data =  await res.json()
+      setRecientes(data);
     }
-    infoCap();
+   capRecientes();
+    
   },[])
+
+  console.log(recientes)
+
   return (
     <>
       <Btonsb urlimg={'./svgs/back-icon.svg'}
@@ -55,11 +69,18 @@ function App() {
        <Contenedor clas={episode != true ? "onRecent":"offRecent" } >
         <Childcontein clas={"childcontein-left"}>
           <h4>Capitulos Recientes</h4>
-          <ChildconteinList
-            urlimg="https://i.pinimg.com/736x/c0/4a/0b/c04a0b20c27ecfc979db2b6bf753de09.jpg"
-            title={"naruto"}
-            capitulo={"capitulo 100"}
-          />
+          {
+            recientes.map(cap=>{
+              return(
+              <ChildconteinList
+                urlimg={cap.urlimg}
+                title={cap.title}
+                capitulo={cap.capitulo}
+              />
+
+              )
+            })
+          }
 
      
         </Childcontein>

@@ -33,9 +33,7 @@ app.get('/recientes', async(req,res)=>{
 
 app.get('/search',async(req,res)=>{
    const {name,cap} =  req.query;
-   console.log(name,cap)
    const result =  await  extraCap(name,cap)
-   console.log(result)
     res.send(result)
 })
 
