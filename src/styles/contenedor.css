@@ -1,0 +1,20 @@
+.onEpisode{
+    width: 97%;
+    padding: 1rem;
+    margin: 0 auto;
+    border: solid 2px  #a7ff02;
+
+}
+.onRecent{
+    width: 97%;
+    padding-bottom: .5rem;
+    margin: 0 auto;
+    border: solid 2px  #ff0202;
+}
+
+.offEpisode{
+    display: none;
+}
+.offRecent{
+    display: none;
+}

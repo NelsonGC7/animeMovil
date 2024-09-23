@@ -1,3 +1,4 @@
+import { Contenedor } from "./components/Contenedor.jsx";
 import { Header } from "./components/Header";
 import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
@@ -21,7 +22,7 @@ function App() {
   const [urlimg,setUrlimg] = useState('');
   const [generos,setGeneros]= useState([]);
   const [urlframe,setUrlframe]= useState('');
-  const [episode,setEpisode] =  useState(true);
+  const [episode,setEpisode] =  useState(false);
   const [slides,setSlides] = useState(false);
 
    async function llamada() {
@@ -36,8 +37,7 @@ function App() {
   },[])
   return (
     <>
-      <Btonsb
-        urlimg={'./svgs/back-icon.svg'}
+      <Btonsb urlimg={'./svgs/back-icon.svg'}
         funcionClick={()=>{
           click(episode,setEpisode)
         }}
@@ -49,10 +49,13 @@ function App() {
           funcionClick={()=>{click(slides,setSlides)}}
         />
        </Header>
+       <Contenedor clas={episode != true ? "onRecent":"offRecent" } >
+        
 
-        <section className={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
+       </Contenedor>
+
+        <Contenedor clas={`${episode === false ? 'offEpisode': 'onEpisode'}`}>
           <Episodes clas={slides ? "onCapitulos":"offCapitulos"} />
-          
           <Media
             urliframe={urlframe === 'MEGA'?iframesSrc.MEGA:iframesSrc.MV}
             no1={'MEGA'}
@@ -70,7 +73,7 @@ function App() {
             year={anime.year}
             status={anime.status}
           />
-      </section>
+      </Contenedor>
     </>
   )
 }
