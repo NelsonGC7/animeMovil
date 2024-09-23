@@ -8,4 +8,5 @@
     border: solid 1px black;
     border-left: none;
     cursor: pointer;
+    z-index: 3;
 }

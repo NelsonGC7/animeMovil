@@ -4,6 +4,7 @@ import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
 import { Episodes } from "./components/Episodes.jsx";
+import { Childcontein,ChildconteinList } from "./components/Childcontein.jsx";
 import { useEffect,useState} from "react";
 import { click } from "./utils/click.js";
 import { cliker } from "./utils/cliker.js";
@@ -25,15 +26,17 @@ function App() {
   const [episode,setEpisode] =  useState(false);
   const [slides,setSlides] = useState(false);
 
-   async function llamada() {
-    const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
-    const data =  await res.json();
-    setAnime(data.data[0]);
-    setUrlimg(data.data[0].images.jpg.image_url);
-    setGeneros(data.data[0].genres);
-   }
+
   useEffect(()=>{
-   llamada()
+    async function infoCap() {
+      const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
+      const data =  await res.json();
+      setAnime(data.data[0]);
+      setUrlimg(data.data[0].images.jpg.image_url);
+      setGeneros(data.data[0].genres);
+      
+    }
+    infoCap();
   },[])
   return (
     <>
@@ -50,7 +53,19 @@ function App() {
         />
        </Header>
        <Contenedor clas={episode != true ? "onRecent":"offRecent" } >
-        
+        <Childcontein clas={"childcontein-left"}>
+          <h4>Capitulos Recientes</h4>
+          <ChildconteinList
+            urlimg="https://i.pinimg.com/736x/c0/4a/0b/c04a0b20c27ecfc979db2b6bf753de09.jpg"
+            title={"naruto"}
+            capitulo={"capitulo 100"}
+          />
+
+     
+        </Childcontein>
+        <Childcontein clas="childcontein-right">
+          <li>hola</li>
+        </Childcontein>
 
        </Contenedor>
 

@@ -7,9 +7,17 @@
 }
 .onRecent{
     width: 97%;
+    height: 88vh;
+    overflow: hidden;
     padding-bottom: .5rem;
     margin: 0 auto;
-    border: solid 2px  #ff0202;
+    border: solid 2px rosybrown;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: .3rem;
+    border-radius: .4rem;
 }
 
 .offEpisode{

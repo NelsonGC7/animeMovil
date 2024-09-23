@@ -1,6 +1,5 @@
 
 import '../styles/btonsb.css'
-
 export const Btonsb =({ urlimg,funcionClick,clas })=>{
     return(
         <button onClick={funcionClick} className={clas}>
