@@ -4,7 +4,7 @@ import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
 import { Episodes } from "./components/Episodes.jsx";
-import { Childcontein,ChildconteinList } from "./components/Childcontein.jsx";
+import { Childcontein,ChildconteinList,ChildconteinBest } from "./components/Childcontein.jsx";
 import { useEffect,useState} from "react";
 import { click } from "./utils/click.js";
 import { cliker } from "./utils/cliker.js";
@@ -50,7 +50,6 @@ function App() {
     
   },[])
 
-  console.log(recientes)
 
   return (
     <>
@@ -81,11 +80,10 @@ function App() {
               )
             })
           }
-
-     
         </Childcontein>
         <Childcontein clas="childcontein-right">
-          <li>hola</li>
+          <h4>mejores de la temporada</h4>
+
         </Childcontein>
 
        </Contenedor>

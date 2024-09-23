@@ -21,3 +21,17 @@ export const ChildconteinList = ({ urlimg,capitulo,title })=>{
         </li>
     )
 }
+
+export const ChildconteinBest = ({ urlimg,nombre })=>{
+    return(
+        <li className='childconteinbest'>
+            <figure>
+                <img src={urlimg} alt="..." />
+                <h3>{nombre}</h3>
+
+            </figure>
+
+        </li>
+    )
+
+}
