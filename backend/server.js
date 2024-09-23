@@ -1,14 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
-import { createClient } from '@libsql/client';
-import { extraCap,extracRecient } from '../scripts/extraCap.js';
-import {randomUUID} from  'node:crypto'
-import { title } from 'node:process';
-import { error } from 'node:console';
+import { extraCap,extracRecient } from '../scripts/escrapin.js';
+import { uploadEpisode } from './utils/dbScripts.js';
 
 
-dotenv.config()
 const PORT = 4266;
 const app = express();
 
@@ -16,47 +11,17 @@ const app = express();
 app.disable('x-powered-by')
 app.use(cors());
 
-const turso = createClient({// <-- cliente de la base de datos
-    url:process.env.DB_URL,
-    authToken:process.env.DB_TOKEN
-})
 
-// const test = await turso.execute("SELECT * FROM recientes")
-//  console.log(test)
-
-
-//area de escrapin 
-
-
-//const recientes  = await  extracRecient()
-
-const recientesDB = ()=>{
-    async function uploadEpisodes(id,title,urlimg,capitulo){
-       try{
-        const setEpisodes = await turso.execute({
-            sql:
-            `INSERT INTO recientes(id,title,urlimg,capitulo)
-            VALUES (:id,:title,:urlimg,:capitulo)`,
-            args:{
-                id,
-                title,
-                urlimg,
-                capitulo
-            }
-        })
-        return setEpisodes;
-       }
-       catch(err){
-        console.log({
-            error:"error al subir un episodio a la db"
-        })
-       }
+const uplodaRecients= async()=>{
+    const listEpisodes =  await extracRecient();
+    for(let i = 0; i < listEpisodes.length ;i++){
+        const episodio = await listEpisodes[i];
+       const subida = await uploadEpisode(episodio.title,episodio.urlimg,episodio.episode)
+        console.log(subida.rowsAffected)
     }
-    
-return  uploadEpisodes();
-}
 
-console.log(recientesDB())
+}
+// uplodaRecients()
 
 
 

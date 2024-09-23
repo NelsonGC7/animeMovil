@@ -1,9 +1,4 @@
 import puppeteer from 'puppeteer';
-import fs from  'fs';
-import { error } from 'console';
-
-const datos = []//<-- usado para el json local
-
 
 export async function extraCap(name,cap){
     try{
@@ -31,22 +26,14 @@ export async function extraCap(name,cap){
            btonn.click()
             return document.querySelector('.CpCnA iframe').src
         })
-        const obj = {
-            title: data.title,
-            "MEGA":data.url,
-            "SW":data2
-        }
-        datos.push(obj)
-        const dataJson = JSON.stringify(datos,null,2)
-
-        fs.writeFile('data.json',dataJson,(error)=>{
-            if(error)  return console.log(error)
-            console.log('archivo creado')
-        })
 
         page.close()
         browser.close()
-        return obj
+        return {
+            title: data.title,
+            "MEGA":data.url,
+            "SW":data2
+        };
     }
     catch (err){
         console.log({
@@ -72,7 +59,7 @@ export async function extracRecient(){
             const list = document.querySelectorAll('.ListEpisodios li');
             list.forEach(item =>{
                 const capitulo= {
-                    eposode: item.querySelector('.Capi').innerHTML.trim(),
+                    episode: item.querySelector('.Capi').innerHTML.trim(),
                     urlimg:  item.querySelector('img').src,
                     title :item.querySelector('.Title').innerHTML.trim()
 
@@ -87,7 +74,7 @@ export async function extracRecient(){
     }
     catch(err){
         console.log({
-            "error al extraer los recientes": err
+            error:"error al extraer recientes"
         })
 
     }

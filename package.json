@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "nodemon": "nodemon backend/server.js",
-    "scrip": "node ./scripts/extraCap.js",
+    "scrip": "node ./scripts/escrapin.js",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
