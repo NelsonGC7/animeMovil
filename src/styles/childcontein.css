@@ -25,14 +25,28 @@
 
 }
 .childcontein-right{
+    
     width: 56%;
     height: 100%;
     border: solid black  1px;
     list-style: none;
-    display: flex;
-    flex-direction: column;
     padding: .5rem;
     overflow: hidden;
     border-radius: .5rem;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    gap: 1rem;
+    h4{
+        position:sticky;
+        z-index: 2;
+        border: black solid 1px;
+        background-color: orange;
+        color: aliceblue;
+        padding:.1rem;
+        border-radius: .3rem;
+        font-size: calc(1rem - .3px);
+        left: 1rem;
+    }
 }

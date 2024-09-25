@@ -1,4 +1,5 @@
 .BtonSB{
+
     position: absolute;
     width: 2rem;
     height: 2.8rem;
@@ -9,4 +10,5 @@
     border-left: none;
     cursor: pointer;
     z-index: 3;
+    display: none;
 }

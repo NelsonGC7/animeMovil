@@ -1,0 +1,13 @@
+
+.onBusqueda{
+    height: 89.5%;
+    width: 96%;
+    background-color:white;
+    border: solid 1px black;
+    border-radius: .5rem;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    transform: translateY(2.5rem);
+    z-index: 5;
+}

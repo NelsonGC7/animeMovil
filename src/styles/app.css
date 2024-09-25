@@ -10,4 +10,5 @@
 }
 body{
     background: linear-gradient(to right, #fdacdb,#c38afc );
+    position: relative;
 }

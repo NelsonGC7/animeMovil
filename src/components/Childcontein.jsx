@@ -1,5 +1,7 @@
 import '../styles/childcontein.css'
 import '../styles/childcontein_list.css'
+import '../styles/childcontein_best.css'
+
 
 export const Childcontein = ({ children ,clas })=>{
     return (
@@ -27,8 +29,17 @@ export const ChildconteinBest = ({ urlimg,nombre })=>{
         <li className='childconteinbest'>
             <figure>
                 <img src={urlimg} alt="..." />
-                <h3>{nombre}</h3>
-
+                <div>
+                    <h3>{nombre}</h3>
+                    <figure>
+                        <img src="./svgs/starYellow.svg" alt="" />
+                        <img src="./svgs/starYellow.svg" alt="" />
+                        <img src="./svgs/starYellow.svg" alt="" />
+                        <img src="./svgs/starYellow.svg" alt="" />
+                        <img src="./svgs/starYellow.svg" alt="" />
+                    </figure>
+                    <p>4.9</p>
+                </div>
             </figure>
 
         </li>
