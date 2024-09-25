@@ -1,0 +1,88 @@
+/* Otaku Theme Colors and Gradients */
+
+:root {
+  /* Primary Colors */
+  --otaku-pink: #ffc0cb;
+  --otaku-purple: #9370db;
+  --otaku-blue: #87cefa;
+  --otaku-yellow: #ffff00;
+  --otaku-indigo: #4b0082;
+
+  /* Accent Colors */
+  --otaku-cherry: #de3163;
+  --otaku-sparkle: #ffd700;
+  --otaku-zap: #00bfff;
+
+  /* Background Colors */
+  --otaku-bg-light: #fff5f8;
+  --otaku-bg-dark: #2a0a2a;
+
+  /* Text Colors */
+  --otaku-text-primary: #4a0e4e;
+  --otaku-text-secondary: #6a5acd;
+}
+
+/* Gradients */
+.bg-otaku-main {
+  background: linear-gradient(to bottom right, var(--otaku-pink), var(--otaku-purple));
+}
+
+.bg-otaku-card {
+  background: linear-gradient(to right, #e0f7fa, #e8eaf6);
+}
+
+.bg-otaku-highlight {
+  background: linear-gradient(to right, var(--otaku-yellow), var(--otaku-pink));
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Border Styles */
+.border-otaku {
+  border: 4px solid var(--otaku-pink);
+  border-radius: 12px;
+}
+
+.border-otaku-light {
+  border: 2px solid var(--otaku-purple);
+  border-radius: 8px;
+}
+
+/* Text Styles */
+.text-otaku-title {
+  color: var(--otaku-text-primary);
+  font-weight: bold;
+}
+
+.text-otaku-subtitle {
+  color: var(--otaku-text-secondary);
+}
+
+/* Icon Colors */
+.icon-cherry {
+  color: var(--otaku-cherry);
+}
+
+.icon-sparkle {
+  color: var(--otaku-sparkle);
+}
+
+.icon-zap {
+  color: var(--otaku-zap);
+}
+
+/* Utility Classes */
+.bg-otaku-translucent {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.shadow-otaku {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}

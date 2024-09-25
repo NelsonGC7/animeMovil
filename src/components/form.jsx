@@ -1,6 +1,6 @@
 export const Form = ({ sbmit,input,busqued })=>{
     return(
-        <form action="" onSubmit={sbmit}>
+        <form  onSubmit={sbmit}>
         <input value={input} onChange={busqued} />
        </form>
     )

@@ -32,6 +32,7 @@ function App() {
   const [search,setSearch]=useState(false)
   const [input,setInput]=useState('')
   const [bsqueda,setBsqueda]=useState(false)
+  const [serchlist,setSearchlist] = useState ([])
   // useEffect(()=>{
   //   async function infoCap() {
   //     const res =  await fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
@@ -54,14 +55,41 @@ function App() {
    capRecientes();  
   },[])
 
+  useEffect(()=>{
+    const  capSearch = async ()=>{
+      const res = await fetch(`https://api.jikan.moe/v4/anime?q=${input}`)
+      const data  =  await res.json();
+      if(data){
+        setSearchlist(data.data)
+        console.log(serchlist)
+      }
+    }
+    capSearch()
+
+
+  },[input])
+
   function sbmit(e){
     e.preventDefault()
-
+    if(!search){
+      click(search,setSearch);
+    }else{
+      const clean = input.trim()
+      if(clean.length !==0){
+        setBsqueda(true);
+        // setSearch(false)
+        
+      }
+    }
   }
   function busqueda (e){
     setInput(e.target.value)
+    if(input.length > 0 ){
+      setBsqueda(true)
+    }
+    
   }
-  console.log(input)
+
 
   return (
     <>
@@ -80,7 +108,6 @@ function App() {
         busqued={busqueda}
        />
        <Btonsb
-          
           urlimg={"./svgs/search-icon.svg"} 
           tipo="submit"
           funcionClick={()=>{
@@ -103,6 +130,7 @@ function App() {
           funcionClick={()=>{click(slides,setSlides)}}
         />
        </Header>
+
        <Contenedor clas={episode != true ? "onRecent":"offRecent" } >
         <Childcontein clas={"childcontein-left"}>
           <h4>Capitulos Recientes</h4>
@@ -156,13 +184,22 @@ function App() {
             status={anime.status}
           />
       </Contenedor>
-      <Contenedor clas={ bsqueda ? 'onBusqueda':'offBusqueda'}>
-        <ChildconteinSearch
-          urlimg='./images/prub1.jpg'
-          capitulos={12}
-          nombre={'Sword Art Online'}
 
-        />
+      <Contenedor clas={ bsqueda ? 'onBusqueda':'offBusqueda'}>
+        {
+           
+          serchlist ? serchlist.map(cap=>{
+            return(
+              <ChildconteinSearch
+                key={cap.title}
+                urlimg={cap.images.jpg[1]}
+                nombre={cap.title}
+                capitulos={cap.episodes}
+              
+              />
+            )
+          }):''
+        }
       </Contenedor>
     </>
   )

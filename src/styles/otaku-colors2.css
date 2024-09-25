@@ -1,0 +1,74 @@
+/* Otaku Bento Grid Colors and Gradients */
+
+:root {
+    /* Colores principales */
+    --otaku-pink-200: #fbcfe8;
+    --otaku-pink-300: #f9a8d4;
+    --otaku-pink-400: #f472b6;
+    --otaku-purple-300: #d8b4fe;
+    --otaku-purple-400: #c084fc;
+    --otaku-purple-700: #7e22ce;
+    --otaku-blue-100: #dbeafe;
+    --otaku-blue-500: #3b82f6;
+    --otaku-yellow-200: #fef08a;
+    --otaku-yellow-300: #fde047;
+    --otaku-yellow-500: #eab308;
+    --otaku-indigo-600: #4f46e5;
+  }
+  
+  /* Gradientes de fondo */
+  .bg-gradient-main {
+    background-image: linear-gradient(to bottom right, var(--otaku-pink-200), var(--otaku-purple-300));
+  }
+  
+  .bg-gradient-card {
+    background-image: linear-gradient(to right, var(--otaku-blue-100), #ede9fe); /* purple-100 no está definido, usando el valor directamente */
+  }
+  
+  .bg-gradient-highlight {
+    background-image: linear-gradient(to right, var(--otaku-yellow-200), var(--otaku-pink-200));
+  }
+  
+  /* Colores de texto */
+  .text-purple-700 {
+    color: var(--otaku-purple-700);
+  }
+  
+  .text-indigo-600 {
+    color: var(--otaku-indigo-600);
+  }
+  
+  /* Colores de borde */
+  .border-pink-300 {
+    border-color: var(--otaku-pink-300);
+  }
+  
+  .border-pink-400 {
+    border-color: var(--otaku-pink-400);
+  }
+  
+  .border-purple-400 {
+    border-color: var(--otaku-purple-400);
+  }
+  
+  .border-yellow-300 {
+    border-color: var(--otaku-yellow-300);
+  }
+  
+  /* Colores de icono */
+  .icon-pink-500 {
+    color: var(--otaku-pink-400); /* Usando pink-400 en lugar de pink-500 */
+  }
+  
+  .icon-yellow-500 {
+    color: var(--otaku-yellow-500);
+  }
+  
+  .icon-blue-500 {
+    color: var(--otaku-blue-500);
+  }
+  
+  /* Fondo semi-transparente */
+  .bg-white-80 {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
