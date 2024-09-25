@@ -1,6 +1,7 @@
 import '../styles/childcontein.css'
 import '../styles/childcontein_list.css'
 import '../styles/childcontein_best.css'
+import '../styles/childcontein_search.css'
 
 
 export const Childcontein = ({ children ,clas })=>{
@@ -41,8 +42,23 @@ export const ChildconteinBest = ({ urlimg,nombre })=>{
                     <p>4.9</p>
                 </div>
             </figure>
-
         </li>
     )
+
+}
+
+export const ChildconteinSearch = ({ urlimg,capitulos,nombre})=>{
+    return(
+        <li className='childconteinsearch'>
+            <img src={ urlimg } alt="" />
+            <div>
+                <p><strong>Capitulos:</strong>{capitulos}</p>
+                <p><strong>Nombre:</strong>{nombre}</p>
+            </div>
+        </li>
+
+
+    )
+
 
 }

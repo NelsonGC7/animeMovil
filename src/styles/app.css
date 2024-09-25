@@ -11,4 +11,5 @@
 body{
     background: linear-gradient(to right, #fdacdb,#c38afc );
     position: relative;
+    padding-bottom: 1rem;
 }

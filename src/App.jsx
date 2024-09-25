@@ -4,7 +4,8 @@ import { Media } from "./components/Media";
 import { Informacion } from "./components/Informacion";
 import { Btonsb } from "./components/Btonsb";
 import { Episodes } from "./components/Episodes.jsx";
-import { Childcontein,ChildconteinList,ChildconteinBest } from "./components/Childcontein.jsx";
+import { Childcontein,ChildconteinList,
+        ChildconteinBest,ChildconteinSearch } from "./components/Childcontein.jsx";
 import { Form } from "./components/form.jsx";
 import { useEffect,useState} from "react";
 import { click } from "./utils/click.js";
@@ -155,9 +156,13 @@ function App() {
             status={anime.status}
           />
       </Contenedor>
-      <Contenedor clas={ bsqueda ? 'onBusqueda':'offbusqueda'}>
+      <Contenedor clas={ bsqueda ? 'onBusqueda':'offBusqueda'}>
+        <ChildconteinSearch
+          urlimg='./images/prub1.jpg'
+          capitulos={12}
+          nombre={'Sword Art Online'}
 
-
+        />
       </Contenedor>
     </>
   )

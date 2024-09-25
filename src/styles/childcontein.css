@@ -10,14 +10,15 @@
     display: flex;
     gap: 1rem;
     h4{
-        position: fixed;
+        height: 1.5rem;
+        position: sticky;
         z-index: 2;
         border: black solid 1px;
         background-color: orange;
         color: aliceblue;
         padding:.1rem;
         border-radius: .3rem;
-        font-size: calc(1rem - .3px);
+        font-size: calc(.9rem - .1px);
         left: 1rem;
         
     }

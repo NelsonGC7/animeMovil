@@ -2,6 +2,7 @@
 .onBusqueda{
     height: 89.5%;
     width: 96%;
+    padding: .6rem;
     background-color:white;
     border: solid 1px black;
     border-radius: .5rem;
@@ -10,4 +11,12 @@
     margin: auto;
     transform: translateY(2.5rem);
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.offBusqueda{
+    display: none;
 }

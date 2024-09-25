@@ -1,0 +1,19 @@
+.childconteinsearch{
+    min-height: 6rem;
+    width: 100%;
+    overflow: hidden;
+    border: solid black;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+}
+.childconteinsearch img{
+    height: 100%;
+    width: 25%;
+}
+.childconteinsearch div{
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
