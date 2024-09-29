@@ -1,9 +1,10 @@
+
 import '/src/styles/header.css'
-export const Header =()=>{
+export const Header =({children})=>{
  return(
     <header className='Header'>
-        <h1>An1meTotal</h1>
-        <button><img src="/svgs/menu-icon.svg" alt="" /></button>
+        <h1>An1mescraP</h1>
+       {children}
     </header>
 
 

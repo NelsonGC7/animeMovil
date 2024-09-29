@@ -1,0 +1,4 @@
+## manda a escrapear el capitulo/despues se le anadira la funcionalidad de preguntar primero si existe en la base de datos si no se escrapeara par luego ser anadido a la db
+GET http://127.0.0.1:4266/search?name=naruto&cap=100
+
+

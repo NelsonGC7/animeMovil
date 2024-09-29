@@ -1,0 +1,56 @@
+.onCapitulos{
+    transform: translateX(0);
+    display: flex;
+    background-color: rgba(181, 181, 181, 0.821);
+    border-radius: .5rem 0 0 .5rem;
+    border:solid 1px black;
+    height: 87%;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    place-content: center;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: all.3s ease-out;
+    padding: 0 1rem 1rem 1rem;
+}
+.onCapitulos .episodes{
+    width: 100%;
+    height: fit-content;
+    max-height: 39rem;
+    border-radius: .5rem;
+    border:solid 1px black;
+    gap: .8rem;
+    margin: 0;
+    padding: .8rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(9,1fr);
+    transition: all.3s ease-out;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.onCapitulos .episodes div{
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    border:solid 1px black;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in-out;
+    &:hover{
+        background:linear-gradient(gray,rgb(244, 193, 97));
+        color: white;
+    }
+    
+}
+.offCapitulos{
+    transform: translateX(400%);
+    div,h2{display: none;}
+}
