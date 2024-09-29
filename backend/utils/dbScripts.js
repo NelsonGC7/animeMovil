@@ -30,7 +30,7 @@ export async function uploadEpisode(title,urlimg,capitulo){
          error:"error al subir un episodio a la db"
      })
     }
- }
+ };
 
 export async function recentEoisodes() {
     try{
@@ -41,6 +41,18 @@ export async function recentEoisodes() {
         console.log({
             error:"error en la traer los cap mas recientes"
         })
+    }
+    
+};
+
+
+export async function delRecientes(params) {
+    try{
+        const  delRecientes = await turso.execute('DELETE FROM recientes')
+        console.log(delRecientes)
+    }
+    catch(err){
+        console.log({"error al eliminar los recinetes de db": err})
     }
     
 }

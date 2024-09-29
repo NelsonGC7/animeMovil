@@ -6,14 +6,21 @@
     border-radius: .4rem;
     display: flex;
     align-items: center;
+    gap: .5rem;
+}
+.childconteinsearch:hover img{
+    scale: .9;
+    height: 99%;
+    border-radius: .3rem;
+    transition: all .3s ease-in-out;
+
 }
 .childconteinsearch img{
-    height: 100%;
-    width: 25%;
+    width: 6rem;
 }
 .childconteinsearch div{
-    padding: .3rem;
     display: flex;
     flex-direction: column;
     gap: .6rem;
+    padding: .5rem 0 .5rem 0;
 }

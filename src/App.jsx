@@ -25,6 +25,7 @@ function App() {
   const [anime,setAnime] = useState([]);
   const [urlimg,setUrlimg] = useState('');
   const [generos,setGeneros]= useState([]);
+  const [top,setTop] = useState([]);
   const [urlframe,setUrlframe]= useState('');
   const [episode,setEpisode] =  useState(false);
   const [slides,setSlides] = useState(false);
@@ -56,12 +57,24 @@ function App() {
   },[])
 
   useEffect(()=>{
+    const animeTop  = async ()=>{
+      const res = await fetch('https://api.jikan.moe/v4/top/anime')
+      const data = await res.json()
+      if(data.data.length > 0){
+        setTop([data.data[0],data.data[1],data.data[2]]);
+      }
+
+    }
+    animeTop()
+
+  },[])
+
+  useEffect(()=>{
     const  capSearch = async ()=>{
       const res = await fetch(`https://api.jikan.moe/v4/anime?q=${input}`)
       const data  =  await res.json();
       if(data){
         setSearchlist(data.data)
-        console.log(serchlist)
       }
     }
     capSearch()
@@ -78,7 +91,6 @@ function App() {
       if(clean.length !==0){
         setBsqueda(true);
         // setSearch(false)
-        
       }
     }
   }
@@ -149,18 +161,20 @@ function App() {
         </Childcontein>
         <Childcontein clas="childcontein-right">
           <h4>Top Semanal</h4>
-          <ChildconteinBest
-            urlimg='./images/prub1.jpg'
-            nombre={'One piece'}
-          />
-          <ChildconteinBest
-            urlimg='./images/prub1.jpg'
-            nombre={'One piece'}
-          />
-          <ChildconteinBest
-            urlimg='./images/prub1.jpg'
-            nombre={'One piece'}
-          />
+
+          {
+            top.map(cap=>{
+              return(
+                <ChildconteinBest
+                  urlimg={cap.images.jpg.image_url}
+                  nombre={cap.title}
+                  punteo={cap.score}
+                /> 
+              )
+            })
+          }
+          
+         
         </Childcontein>
        </Contenedor>
 
@@ -192,7 +206,7 @@ function App() {
             return(
               <ChildconteinSearch
                 key={cap.title}
-                urlimg={cap.images.jpg[1]}
+                urlimg={cap.images.jpg.image_url}
                 nombre={cap.title}
                 capitulos={cap.episodes}
               

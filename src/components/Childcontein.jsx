@@ -25,10 +25,10 @@ export const ChildconteinList = ({ urlimg,capitulo,title })=>{
     )
 }
 
-export const ChildconteinBest = ({ urlimg,nombre })=>{
+export const ChildconteinBest = ({ urlimg,nombre,punteo })=>{
     return(
-        <li className='childconteinbest'>
-            <figure>
+        <li className='childconteinbest' title={nombre}>
+            <figure title={nombre}>
                 <img src={urlimg} alt="..." />
                 <div>
                     <h3>{nombre}</h3>
@@ -39,7 +39,7 @@ export const ChildconteinBest = ({ urlimg,nombre })=>{
                         <img src="./svgs/starYellow.svg" alt="" />
                         <img src="./svgs/starYellow.svg" alt="" />
                     </figure>
-                    <p>4.9</p>
+                    <p>{punteo}</p>
                 </div>
             </figure>
         </li>
